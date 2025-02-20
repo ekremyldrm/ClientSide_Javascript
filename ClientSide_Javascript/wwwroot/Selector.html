@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <!--Html DOM yapısındadır. Dom bir hiyerarşi (root child ilişkisinin belirlendiği yapısıdır. DOm'a göre kok element ve child elementler vardır.. verilere erişmek için bir standarttır. (XML;HTML,Json)
+    DOM'a göre döküman içerisindeki herşey bir nesnedir..
+
+    Tarıyıcıda bu dom yapısını kullandığı için sayfa içeriisndeki bütün elementler bir nesnedir...
+    -->
+    <!--
+        scriptlerin body içerisinde en alta alınması önerilir...script yüklendiğinde element henüz yüklenmemiş olabilir...
+
+        -->
+
+    <div class="container">
+
+
+        <a href="index.html">Geri Dön</a>
+
+        <div class="basliks">
+
+
+            <h1>DOM (Document Object Model)</h1>
+
+            <h1 id="baslik">Html</h1>
+            <h1 class="ortakBaslik">Javascript</h1>
+        </div>
+
+
+        <input type="text" id="sayi1" class="form-control form-control-sm" autocomplete="off" placeholder="1. Sayıyı Giriniz" />
+        <br />
+        <input type="text" id="sayi2" class="form-control form-control-sm" autocomplete="off" placeholder="2. Sayıyı Giriniz" />
+        <br />
+        <input type="button" class="btn btn-info" value="Topla" onclick="Topla()" />
+        <!--fonksiyonlar nesnelerin eventleri ile tetiklenebilir...-->
+
+        <br /><br />
+        <hr />
+        <div id="sonuc">
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        //query selectör döküman içerisinden nesne seçmemizi sağlar
+        var deger = document.querySelector("h1").innerText; // bu element seçici
+
+
+        var elemt = document.querySelector(".basliks"); // class container seç
+
+        var newBaslik = document.createElement("h1"); // yeni bir nesne oluşturuyoruz....
+        newBaslik.innerText = "CSS";
+        elemt.appendChild(newBaslik); // nesneyi body'e ekliyoruz...
+
+
+        var t = document.querySelector("#baslik"); // id'si başlık olanı seç...
+        t.style.color = "red" // stil atıyoruz....
+
+        function Topla() {
+
+            var num1 = document.getElementById("sayi1"); // 1. textboxi seçiyoruz
+            var num2 = document.getElementById("sayi2"); // 2. textbxoi seçiyoruz
+            var sonuc = document.getElementById("sonuc"); // divi seçiyoruz...
+
+            // textboxilarimn value'i string'tir. length string'in uzunluğunu verir...
+            var result;
+
+            debugger;
+
+            if (num1.value.length == 0 || num2.value.length == 0) { // textler boş ise
+                sonuc.className = "alert alert-danger"; // divin class adını set et..
+                result = "Tanımsız Sayı"; // değşlene değer ata
+            } else if (isNaN(num1.value) || isNaN(num2.value)) { // IsNotaNumber'sa 
+                sonuc.className = "alert alert-danger";
+                result = "Tanımsız Sayı";
+            }
+            else {
+                sonuc.className = "alert alert-info";
+                result = parseInt(num1.value) + parseInt(num2.value);
+            }
+
+            sonuc.innerHTML = "<b> İşlem Sonucu </b>" + result;
+        }
+
+    </script>
+
+
+</body>
+</html>

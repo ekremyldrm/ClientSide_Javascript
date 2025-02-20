@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <script>
+
+
+        var arr1 = ['Gökberk', 'Şimal', 'Eren', 'Veli', 'Mahmut', 'Yiğit'];
+        var arr2 = ['Ekrem', 5, false];
+
+        var arr3 = new Array();
+        arr3[0] = 'Eren';
+        arr3[1] = 'Veli';
+        arr3[2] = 'Şimal';
+
+
+        for (var i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+
+        console.log("*******************");
+        var j = 0;
+        while (j < arr2.length) {
+            console.log(arr2[j++]);
+        }
+
+        console.log("*******************");
+        // elemanlar sırası ile a'ya atanır
+        arr3.forEach(function (a) {
+            console.log(a);
+        });
+
+        var arananDeger = 'Veli';
+        if (arr3.indexOf(arananDeger) > -1) {
+            console.log("aranan değer dizide");
+        }
+
+        // object yapısı
+        // classlar gibi birden fazla elemanı bir arada tutmamızı sağlar
+
+        var user1 = { adi: 'Ekrem', Yas: 37 };
+
+        // object array
+        var userArr = [
+            { Adi: 'Gökberk', Yas: 28 },
+            { Adi: 'Şimal', Yas: 25 },
+            { Adi: 'Mahmut', Yas: 43 }
+        ];
+
+        for (var i = 0; i < userArr.length; i++) {
+            console.log(userArr[i].Adi + " " + userArr[i].Yas);
+        }
+
+        console.log('***********');
+
+        // objeler sırası ile usr nesnesine atanır
+        userArr.forEach(function (usr) {
+            console.log(usr.Adi + " " + usr.Yas);
+        });
+
+        // veya
+        var kullanici = {
+            Adi: 'Veli',
+            SoyAdi: 'Karakaş',
+            GetFullAdi: function () {
+                this.FullAdi = this.Adi + " " + this.SoyAdi;
+                // this objenin kendisidir...
+                // this.FullAdi burada oluşturulur.....
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <div class="container">
+
+
+        <a href="index.html">Geri Dön</a>
+
+
+
+
+
+    </div>
+</body>
+</html>
