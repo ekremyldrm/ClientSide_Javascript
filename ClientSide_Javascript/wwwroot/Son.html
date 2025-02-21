@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="jquery/jquery.min.js"></script>
+
+    <style>
+
+        #kutu {
+            margin: 50px auto;
+            width: 500px;
+            height: 300px;
+            border: 2px solid #808080;
+            border-radius: 10px;
+            position: relative; /**absolute elementi kendi ieçrisinde bağımsız yapmak için kullanılır*/
+            overflow: hidden;
+        }
+
+        #action {
+            position: absolute; /**absoulte elemntler sayfadaki elementlerden bağımsızdır. top,left,bottom,right özellikleri ile istenilen yere götürülebilir....*/
+            right: 10px;
+            bottom: 10px;
+        }
+
+            #action span {
+                font-weight: bold;
+                font-size: 20px;
+                background-color: black;
+                color: white;
+                width: 30px;
+                height: 35px;
+                display: block;
+                text-align: center;
+                cursor: pointer;
+                opacity: 0.5;
+            }
+
+        .kutuItem {
+            width: 500px;
+            height: 300px;
+            border: 2px solid #808080;
+            float: left;
+        }
+
+        #kutuItemTut {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <!--span gibi elementlerin genişliği ve yüksekliği texti kadardır.-->
+    <div class="container">
+
+        <div id="kutu">
+
+            <div id="kutuItemTut">
+                <div class="kutuItem">Mahmut</div>
+                <div class="kutuItem">Ekrem</div>
+                <div class="kutuItem">Emine</div>
+
+            </div>
+            <div id="action">
+                <span id="ileri"><</span>
+                <span id="geri">></span>
+            </div>
+
+        </div>
+
+        <div id="aksilik">
+
+        </div>
+    </div>
+
+    <script>
+
+        //query selectör döküman içerisinden nesne seçmemizi sağlar
+        //var kutuItem = $(".kutuItem").toArray();
+
+        $(document).ready(function () {
+
+            var sayac =0;
+            $("#ileri").click(function () {
+
+                //if (sayac >= 3) {
+                //    sayac = 0;
+                // /*   $("#kutuItemTut").html(kutuItem);*/
+                //}
+
+                var top = 300 * sayac;
+                $("#kutuItemTut").animate({ top: '-' + top + 'px' }, 1000);
+
+                //var temp = kutuItem.shift();
+                //kutuItem.push(temp);
+
+                var currentElement = $(".kutuItem").eq(sayac).clone(); // n. elementi al...*/
+                // $("#aksilik").html(currentElement);
+
+                //console.log(currentElement);
+                $('.kutuItem').last().after(currentElement);  // son itemin sonuna ekle...
+
+                sayac++;
+            });
+
+            $("#geri").click(function () {
+
+                //if (sayac = 0) {
+                //    sayac = 3;
+                //}
+
+                var top = 300 * sayac;
+                $("#kutuItemTut").animate({ top: '-' + top + 'px' }, 1000);
+
+                sayac--;
+                console.log(sayac + " " + top);
+
+            });
+
+
+
+        })
+
+    </script>
+
+
+</body>
+</html>

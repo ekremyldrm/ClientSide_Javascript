@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="jquery/jquery.min.js"></script>
+
+    <style>
+        .box {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+
+
+        <a href="index.html">Geri Dön</a>
+
+        <input type="button" id="btnShow" value="Göster" />
+        <input type="button" id="btnHide" value="Gizle" />
+
+        <div class="box" id="kutu">
+        </div>
+
+
+        <hr />
+
+        <input type="button" id="btnShow1" value="Göster" />
+        <input type="button" id="btnHide1" value="Gizle" />
+
+        <div class="box" id="kutu1">
+        </div>
+    </div>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var kt = $("#kutu");
+
+            $("#btnShow").click(function () {
+
+                //document.getElementById("kutu").style.display = "block";
+
+                /*kt.show();*/
+                // kt.fadeIn();
+                //kt.slideDown();
+                kt.slideDown(1000); //1 saniye içesinde yap...
+                
+            });
+
+            $("#btnHide").click(function () {
+               /* document.getElementById("kutu").style.display = "none";*/
+
+                // kt.hide();
+                // kt.fadeOut();
+                kt.slideUp();
+            });
+
+
+            $("#btnShow1").click(function () {
+
+                $("#kutu1").animate({
+                    height: 200,
+                    opacity: 1
+}, 2000);
+              
+
+            });
+
+            $("#btnHide1").click(function () {
+                $("#kutu1").animate({
+                    height: 0,
+                    opacity:0.0
+                }, 2000);
+            });
+
+        });
+
+    </script>
+
+
+</body>
+</html>

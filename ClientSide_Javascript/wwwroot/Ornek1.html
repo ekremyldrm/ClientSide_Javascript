@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+
+    <script>
+
+        var doc = document;
+        console.log(doc);
+
+        function Yazdir() {
+            console.log("ben yazdirdan çalıştırıldım");
+            document.getElementById("h1").innerText = "ben fonksiyon yazdırıldım";
+        }
+
+        // gösterilen fonksiyonu belirtilen süre sonun çalıştırır...
+        setTimeout(Yazdir, 2000);
+
+        /*Yazdir();*/
+
+    </script>
+
+</head>
+<body>
+    <!--Html DOM yapısındadır. Dom bir hiyerarşi (root child ilişkisinin belirlendiği yapısıdır. DOm'a göre kok element ve child elementler vardır.. verilere erişmek için bir standarttır. (XML;HTML,Json)
+    DOM'a göre döküman içerisindeki herşey bir nesnedir..
+
+    Tarıyıcıda bu dom yapısını kullandığı için sayfa içeriisndeki bütün elementler bir nesnedir...
+    -->
+    <!--
+        scriptlerin body içerisinde en alta alınması önerilir...script yüklendiğinde element henüz yüklenmemiş olabilir...
+
+        -->
+
+    <div class="container">
+
+
+        <a href="index.html">Geri Dön</a>
+
+        <h1 id="h1"></h1>
+
+        <div id="UstRow" class="row">
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var kisiler = ["Şimal","Emine","Gökberk","Eren","Mahmut","Ekrem"];
+
+        //kisiler.forEach(KisiGoster);
+        //function KisiGoster(kisi) {
+        //    console.log(kisi);
+        //}
+        kisiler.forEach(function (k) {
+
+            var kutu = document.createElement("div"); // div oluştur...ü
+            kutu.style.border = "1px solid gray";
+            kutu.className = "col-lg-4 col-md-6";
+            /*kutu.innerHTML = "<h1><h1>"*/
+            var baslik = document.createElement("h1");
+            baslik.innerText = k;
+
+            kutu.appendChild(baslik);
+            document.getElementById("UstRow").appendChild(kutu);
+
+        });
+
+
+    </script>
+
+
+</body>
+</html>
